@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leep year</title>
+    <style>
+        .main {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        h2{
+            text-align: center;
+        }
+
+        #number {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            max-width: 260px;
+            width: 100%;
+        }
+
+        #check {
+            border: none;
+            font-size: 20px;
+            background: black;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h2>Find Out Leep Year</h2>
+        <input type="number" value="2023" id="number">
+        <button id="check">Check Leap year</button>
+        <h1 class="show"></h1>
+    </div>
+
+    <script>
+        function leep_year(year) {
+            return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0)
+        }
+
+        // console.log(leep_year(2024));
+
+        const show = document.querySelector('.show');
+        const number = document.querySelector('#number');
+        console.log(number.value);
+
+        const check = document.getElementById('check');
+        check.addEventListener('click', () => {
+            // console.log(leep_year(2024));
+
+            var result = leep_year(number.value)
+            console.log(result);
+            if (result == true) {
+                console.log('this is leep year');
+                show.innerHTML = 'this is leep year'
+            } else {
+                console.log('this is not leep year');
+                show.innerHTML = 'this is not leep year';
+            }
+        })
+    </script>
+</body>
+
+</html>
